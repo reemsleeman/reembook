@@ -1,0 +1,119 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AboutUs - Library Online Store</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+
+    <header>
+        <nav aria-label="Main Navigation">
+            <div class="container">
+                <a href="index.html" class="logo">LibraryOnlineStore</a>
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                   
+                    <li><a href="books.html">Books</a></li>
+                    <li><a href="AboutUs.html">AboutUs</a></li>
+                </ul>
+                <button class="nav-toggle" aria-label="Toggle navigation">
+                    &#9776;
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    <main class="container">
+        <section class="contact-section">
+            <h1>AboutUs</h1>
+            <p>We're here to assist you with any inquiries or feedback you may have. Please fill out the form below, and our team will get back to you as soon as possible.</p>
+
+            <div class="contact-form">
+                <form id="contact-form">
+                    <div class="form-group">
+                        <label for="contact-name">Full Name</label>
+                        <input type="text" id="contact-name" name="contact-name" required placeholder="Your full name" pattern="[A-Za-z\s]+" title="Only Latin letters and spaces allowed">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="contact-email">Email Address</label>
+                        <input type="email" id="contact-email" name="contact-email" required placeholder="Email address">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="contact-subject">Subject</label>
+                        <input type="text" id="contact-subject" name="contact-subject" required placeholder="Subject of your message">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="contact-message">Message</label>
+                        <textarea id="contact-message" name="contact-message" rows="5" required placeholder="Your message"></textarea>
+                    </div>
+
+                    <button type="submit" class="btn">Send Message</button>
+                </form>
+            </div>
+        </section>
+
+        <div id="contact-confirmation-modal" class="confirmation-modal" style="display: none;">
+            <div class="modal-content">
+                <span class="close-button">&times;</span>
+                <h2>Thank You!</h2>
+                <p>Your message has been successfully sent. We'll get back to you shortly.</p>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Library Online Store. All rights reserved.</p>
+            <div class="social-media">
+                <a href="https://facebook.com" aria-label="Facebook" target="_blank" rel="noopener noreferrer">FB</a>
+                <a href="https://twitter.com" aria-label="Twitter" target="_blank" rel="noopener noreferrer">TW</a>
+                <a href="https://instagram.com" aria-label="Instagram" target="_blank" rel="noopener noreferrer">IG</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const navToggle = document.querySelector('.nav-toggle');
+        const navLinks = document.querySelector('.nav-links');
+
+        navToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('nav-active');
+        });
+
+        $("#contact-form").submit(function (e) {
+            e.preventDefault();
+
+            const fullName = $("#contact-name").val().trim();
+            const email = $("#contact-email").val().trim();
+            const subject = $("#contact-subject").val().trim();
+            const message = $("#contact-message").val().trim();
+
+            if (!fullName || !email || !subject || !message) {
+                alert("Please fill in all required fields.");
+                return;
+            }
+
+            $("#contact-form")[0].reset();
+            $("#contact-confirmation-modal").fadeIn();
+        });
+
+        $(".close-button").click(function () {
+            $("#contact-confirmation-modal").fadeOut();
+        });
+
+        $(window).click(function(event) {
+            if ($(event.target).is("#contact-confirmation-modal")) {
+                $("#contact-confirmation-modal").fadeOut();
+            }
+        });
+    </script>
+
+</body>
+</html>

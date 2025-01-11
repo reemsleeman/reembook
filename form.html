@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Form</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+    <h1>Order Book</h1>
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            
+            <li><a href="books.html">Books</a></li>
+        </ul>
+    </nav>
+</header>
+
+<section>
+    <h2>Fill out the form to order the book</h2>
+
+    <form id="order-form">
+        <label for="full-name">Full Name:</label>
+        <input type="text" id="full-name" name="full-name" required>
+
+        <label for="national-id">National ID:</label>
+        <input type="text" id="national-id" name="national-id" required>
+
+        <label for="dob">Date of Birth (DD-MM-YYYY):</label>
+        <input type="text" id="dob" name="dob">
+
+        <label for="mobile">Mobile Number:</label>
+        <input type="text" id="mobile" name="mobile">
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email">
+
+        <button type="submit">Submit</button>
+    </form>
+
+    <div id="confirmation-message"></div>
+</section>
+
+<footer>
+    <p>&copy; 2024 Book Library</p>
+</footer>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="myFunctions.js"></script>
+
+</body>
+</html>
